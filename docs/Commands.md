@@ -3,7 +3,7 @@ HuskHomes provides a range of commands for you to use. This page will detail the
 ## Commands & Permissions Table
 > **Command Conflicts:** If you have multiple plugins providing similar commands, you may need to [create aliases](command-conflicts) to ensure HuskHomes' commands take priority.
 
-<table align="right">
+<table align="right" style="width: max-content">
     <thead>
         <tr><th colspan="2">Key</th></tr>
     </thead>
@@ -322,21 +322,33 @@ This is a table of HuskHomes commands, how to use them, and their required permi
         <!-- /rtp command -->
         <tr><th colspan="5">Random teleport command</th></tr>
         <tr>
-            <td rowspan="3"><code>/rtp</code></td>
+            <td rowspan="5"><code>/rtp</code></td>
             <td><code>/rtp</code></td>
-            <td>Teleport randomly into the wild</td>
+            <td>Teleport randomly into the wild in the current world</td>
             <td><code>huskhomes.command.rtp</code></td>
             <td align="center">✅</td>
         </tr>
         <tr>
             <td><code>/rtp &lt;player&gt;</code></td>
-            <td>Teleport another user randomly into the wild</td>
+            <td>Teleport another player randomly into the wild</td>
             <td><code>huskhomes.command.rtp.other</code></td>
             <td align="center">❌</td>
         </tr>
         <tr>
-            <td><code>/rtp &lt;player&gt; &lt;world&gt;</code></td>
-            <td>Teleport randomly in a specific world</td>
+            <td><code>/rtp &lt;world&gt;</code></td>
+            <td>Teleport randomly in a specified world</td>
+            <td><code>huskhomes.command.rtp.world</code></td>
+            <td align="center">❌</td>
+        </tr>
+        <tr>
+            <td><code>/rtp &lt;world&gt; &lt;server&gt;</code></td>
+            <td>Teleport randomly in a specified world on a specified server</td>
+            <td><code>huskhomes.command.rtp.world</code></td>
+            <td align="center">❌</td>
+        </tr>
+        <tr>
+            <td><code>/rtp &lt;server&gt;</code></td>
+            <td>Teleport randomly in the current world on a specified server</td>
             <td><code>huskhomes.command.rtp.world</code></td>
             <td align="center">❌</td>
         </tr>

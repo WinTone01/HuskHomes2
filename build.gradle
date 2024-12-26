@@ -62,6 +62,7 @@ allprojects {
     apply plugin: 'java'
 
     compileJava.options.encoding = 'UTF-8'
+    compileJava.options.compilerArgs += ['-Xlint:unchecked', '-Xlint:deprecation']
     compileJava.options.release.set 17
     javadoc.options.encoding = 'UTF-8'
     javadoc.options.addStringOption('Xdoclint:none', '-quiet')
@@ -86,9 +87,9 @@ allprojects {
     }
 
     dependencies {
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.3'
-        testImplementation 'org.junit.jupiter:junit-jupiter-params:5.11.3'
-        testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.3'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.4'
+        testImplementation 'org.junit.jupiter:junit-jupiter-params:5.11.4'
+        testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
 
         testCompileOnly 'org.jetbrains:annotations:26.0.1'
     }

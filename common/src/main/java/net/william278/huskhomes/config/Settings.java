@@ -254,7 +254,7 @@ public final class Settings {
                 "Do not change unless you know what you're doing"})
         private String clusterId = "main";
 
-        @Comment("Type of network message broker to ues for data synchronization (PLUGIN_MESSAGE or REDIS)")
+        @Comment("Type of network message broker to ues for cross-server networking (PLUGIN_MESSAGE or REDIS)")
         private Broker.Type brokerType = Broker.Type.PLUGIN_MESSAGE;
 
         @Comment("Settings for if you're using REDIS as your message broker")
@@ -346,7 +346,9 @@ public final class Settings {
 
         @Comment({"List of server in which /rtp is allowed. (Only relevant when using cross server mode WITH REDIS)",
                 "If a server is not defined here the RTP logic has no way of knowing its existence."})
-        private List<String> randomTargetServers = List.of("server-01", "server-02");
+        private Map<String, List<String>> randomTargetServers = new HashMap<>(
+                Map.of("server", List.of("world", "world_nether", "world_the_end"))
+        );
     }
 
     @Comment("Action cooldown settings. Docs: https://william278.net/docs/huskhomes/cooldowns")

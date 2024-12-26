@@ -88,6 +88,22 @@ public class BaseHuskHomesAPI {
     }
 
     /**
+     * Get an {@link OnlineUser} by their UUID
+     *
+     * @param uuid the UUID of the user to get
+     * @return The {@link OnlineUser} wrapped in an optional, if they are online on <i>this</i> server.
+     * @since 4.8.3
+     */
+    @NotNull
+    public Optional<OnlineUser> getOnlineUser(@NotNull UUID uuid) {
+        try {
+            return Optional.of(plugin.getOnlineUser(uuid));
+        } catch (IllegalArgumentException e) {
+            return Optional.empty();
+        }
+    }
+
+    /**
      * Returns saved {@link SavedUser} for the given player's account {@link UUID}, if they exist.
      *
      * @param uuid The {@link UUID} of the user to get data for.
@@ -810,7 +826,7 @@ public class BaseHuskHomesAPI {
                                              @NotNull String... rtpArgs) {
         if (plugin.getSettings().getRtp().isCrossServer() && (plugin.getSettings().getCrossServer().isEnabled() &&
                                                               plugin.getSettings().getCrossServer().getBrokerType() == Broker.Type.REDIS)) {
-            List<String> allowedServers = plugin.getSettings().getRtp().getRandomTargetServers();
+            List<String> allowedServers = new ArrayList<>(plugin.getSettings().getRtp().getRandomTargetServers().keySet());
             String randomServer = allowedServers.get(random.nextInt(allowedServers.size()));
             if (randomServer.equals(plugin.getServerName())) {
                 randomlyTeleportPlayerLocally(user, timedTeleport, rtpArgs);
